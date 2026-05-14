@@ -1,0 +1,2 @@
+# ARAD
+ARIMA Anomaly Detection 
