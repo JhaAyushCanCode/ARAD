@@ -1,0 +1,37 @@
+# ─────────────────────────────────────────────
+# Ad Revenue Anomaly Detector — Configuration
+# ─────────────────────────────────────────────
+
+data:
+  raw_dir: "data/raw"
+  processed_dir: "data/processed"
+  processed_file: "data/processed/ad_metrics_hourly.csv"
+  kaggle_dataset: "avazu/avazu-ctr-prediction"       # kaggle competitions download
+  raw_filename: "train.gz"                            # file inside the download
+
+anomaly_detection:
+  zscore_threshold: 2.5          # flag if |z| > this
+  rolling_window_days: 7         # rolling mean/std window
+  arima_order: [2, 1, 2]         # (p, d, q) — tuned via AIC
+  train_window_days: 7           # ARIMA training window
+  forecast_horizon_hours: 24     # how far ahead to forecast
+  confidence_interval: 0.95      # CI for ARIMA forecast bounds
+
+metrics:
+  - ecpm
+  - fill_rate
+  - ctr
+  - impressions
+  - arpdau
+
+segmentation:
+  geo_col: "site_domain"         # proxy for geo
+  format_col: "banner_pos"       # proxy for ad format
+  demand_col: "app_category"     # proxy for demand source
+
+reporting:
+  output_dir: "outputs/reports"
+  severity_levels:
+    low: 2.5
+    medium: 3.5
+    high: 5.0
