@@ -4,7 +4,7 @@ An end-to-end anomaly detection pipeline for ad monetization metrics — built o
 
 ---
 
-## 🎯 Problem Statement
+##  Problem Statement
 
 Ad monetization platforms generate continuous streams of impression, click, fill-rate, and revenue data. Sudden drops in eCPM, fill rate, or ARPDAU can indicate demand-side issues, geo-level underperformance, tracking failures, or product regressions — and they need to be caught fast.
 
@@ -16,7 +16,7 @@ This project builds an automated pipeline that:
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 ad_revenue_anomaly_detector/
@@ -48,7 +48,7 @@ ad_revenue_anomaly_detector/
 
 ---
 
-## 📊 Dataset
+##  Dataset
 
 **Source:** [Avazu Click-Through Rate Prediction — Kaggle](https://www.kaggle.com/c/avazu-ctr-prediction/data)
 
@@ -76,7 +76,7 @@ python src/fetch_data.py
 
 ---
 
-## 🚀 Setup
+##  Setup
 
 ```bash
 git clone https://github.com/YOUR_USERNAME/ad-revenue-anomaly-detector.git
@@ -86,7 +86,7 @@ pip install -r requirements.txt
 
 ---
 
-## ▶️ Run Pipeline
+##  Run Pipeline
 
 ```bash
 # Step 1: Download + prepare data
@@ -109,7 +109,7 @@ Or run the notebooks in order for an interactive walkthrough.
 
 ---
 
-## 🔍 Methodology
+##  Methodology
 
 ### ARIMA Forecasting
 - Fit ARIMA(p,d,q) model on rolling 7-day training window per metric
@@ -129,7 +129,7 @@ Or run the notebooks in order for an interactive walkthrough.
 
 ---
 
-## 📈 Output Example
+##  Output Example
 
 Each run generates:
 - `outputs/reports/anomaly_report_YYYY-MM-DD.png` — annotated time series with flagged anomalies
@@ -137,7 +137,7 @@ Each run generates:
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 | Layer | Tools |
 |---|---|
@@ -149,7 +149,7 @@ Each run generates:
 
 ---
 
-## 📌 Key Metrics Monitored
+##  Key Metrics Monitored
 
 | Metric | Description |
 |---|---|
@@ -161,7 +161,7 @@ Each run generates:
 
 ---
 
-## 🧠 Interview Notes / Findings
+##  Interview Notes / Findings
 
 - ARIMA(2,1,2) was found to be optimal for eCPM time series via AIC minimisation
 - Z-score threshold of 2.5 gave best precision-recall tradeoff on held-out anomaly windows
@@ -170,6 +170,6 @@ Each run generates:
 
 ---
 
-## 📄 License
+##  License
 
 MIT
